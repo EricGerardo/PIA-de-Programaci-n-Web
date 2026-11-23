@@ -1,18 +1,88 @@
-:root{--rosa:#b0274f;--rosa-claro:#fce8ee;--verde:#2f5d46;--texto:#2b2b2b}
-body{background:#fff;color:var(--texto);font-family:'Lato',system-ui,sans-serif}
-h1,h2,h3,.navbar-brand{font-family:'Playfair Display',Georgia,serif}
-.navbar-brand,.precio{color:var(--rosa)}
-.precio{font-weight:700;font-size:1.25rem}
-.btn-rosa{background:var(--rosa);border-color:var(--rosa);color:#fff}
-.btn-rosa:hover{background:#8f1f3f;color:#fff}
+:root {
+    --rosa: #b0274f;
+    --rosa-claro: #fce8ee;
+    --verde: #2f5d46;
+    --texto: #2b2b2b
+}
+
+body {
+    background: #fff;
+    color: var(--texto);
+    font-family: 'Lato', system-ui, sans-serif
+}
+
+h1,
+h2,
+h3,
+.navbar-brand {
+    font-family: 'Playfair Display', Georgia, serif
+}
+
+.navbar-brand,
+.precio {
+    color: var(--rosa)
+}
+
+.precio {
+    font-weight: 700;
+    font-size: 1.25rem
+}
+
+.btn-rosa {
+    background: var(--rosa);
+    border-color: var(--rosa);
+    color: #fff
+}
+
+.btn-rosa:hover {
+    background: #8f1f3f;
+    color: #fff
+}
+
 /* Espacio para imagen de banner: sustituir el contenido por <img class="w-100" ...> */
-.banner{background:var(--rosa-claro);min-height:260px;border-radius:.5rem}
+.banner {
+    background: var(--rosa-claro);
+    min-height: 260px;
+    border-radius: .5rem
+}
+
 /* Espacio para foto de cada ramo: sustituir el emoji por <img src="img/ramo.jpg" alt="..."> */
-.ramo-img{height:180px;background:var(--rosa-claro);display:flex;align-items:center;justify-content:center;font-size:4rem}
-.ramo-img img{width:100%;height:100%;object-fit:cover}
-.sidebar{background:var(--rosa-claro)}
-.sidebar .nav-link{color:var(--texto)}
-.sidebar .nav-link.active{background:var(--rosa);color:#fff}
-.kpi{border-left:4px solid var(--verde)}
-.auth{max-width:440px}
-.link-rosa{color:var(--rosa)}
+.ramo-img {
+    height: 180px;
+    background: var(--rosa-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem
+}
+
+.ramo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.sidebar {
+    background: var(--rosa-claro)
+}
+
+.sidebar .nav-link {
+    color: var(--texto)
+}
+
+.sidebar .nav-link.active {
+    background: var(--rosa);
+    color: #fff
+}
+
+.kpi {
+    border-left: 4px solid var(--verde)
+}
+
+.auth {
+    max-width: 440px
+}
+
+.link-rosa {
+    color: var(--rosa)
+}
