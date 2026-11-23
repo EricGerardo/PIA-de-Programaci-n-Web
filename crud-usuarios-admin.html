@@ -8,7 +8,7 @@
 <link href="style.css" rel="stylesheet">
 <title>Empleados | Un ramo más</title>
 </head>
-<body>
+<body data-roles="administrador" data-tipo="empleado">
 <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
 <header class="navbar border-bottom px-3">
     <a class="navbar-brand fs-4" href="home-admin.html">🌸 Un ramo más · Admin</a>
@@ -50,7 +50,7 @@
         <main id="contenido" class="col-md-9 col-lg-10 p-4">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
                 <h1 class="h2 mb-0">Usuarios</h1>
-                <button class="btn btn-rosa btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalNuevo">Nuevo empleado</button>
+                <button class="btn btn-rosa btn-sm" type="button" id="btn-nuevo">Nuevo empleado</button>
             </div>
             <div id="aviso" class="alert alert-success d-none" role="status"></div>
             <div class="mb-3">
@@ -70,30 +70,7 @@
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Laura Méndez</td>
-                            <td>laura@unramomas.com</td>
-                            <td>8110000002</td>
-                            <td>12/08/2026</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-secondary" type="button">Editar</button> 
-                                <button class="btn btn-sm btn-outline-secondary btn-rol" type="button">Cambiar rol</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Jorge Salas</td>
-                            <td>jorge@unramomas.com</td>
-                            <td>8110000003</td>
-                            <td>02/09/2026</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-secondary" type="button">Editar</button>
-                                <button class="btn btn-sm btn-outline-secondary btn-rol" type="button">Cambiar rol</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </main>
@@ -121,27 +98,8 @@
     </form>
   </div>
 </div>
-<div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="modalNuevoT" aria-hidden="true">
-  <div class="modal-dialog">
-    <form class="modal-content" id="formNuevo">
-      <div class="modal-header">
-        <h2 class="modal-title h5" id="modalNuevoT">Nuevo empleado</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3"><label for="nNombre" class="form-label">Nombre completo</label><input id="nNombre" class="form-control" required></div>
-        <div class="mb-3"><label for="nCorreo" class="form-label">Correo electrónico</label><input id="nCorreo" type="email" class="form-control" required></div>
-        <div class="mb-3"><label for="nTel" class="form-label">Teléfono</label><input id="nTel" type="tel" class="form-control" required></div>
-        <div class="mb-3"><label for="nPass" class="form-label">Contraseña</label><input id="nPass" type="password" class="form-control" minlength="6" required></div>
-        <div class="mb-0"><label for="nPass2" class="form-label">Confirmar contraseña</label><input id="nPass2" type="password" class="form-control" required><div id="nErr" class="text-danger small mt-1" role="alert"></div></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-rosa">Crear empleado</button>
-      </div>
-    </form>
-  </div>
-</div>
-<script src="js/crud-usuarios-admin.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="js/usuarios.js"></script>
 </body>
 </html>
