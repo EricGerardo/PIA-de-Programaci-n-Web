@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Panel admin | Un ramo más</title>
+</head>
+
+<body>
+    <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+    <header class="navbar border-bottom px-3"><a class="navbar-brand fs-4" href="home-admin.html">🌸 Un ramo más ·
+            Admin</a>
+        <div class="d-flex align-items-center gap-2"><span class="fw-bold">Admin</span><a
+                class="btn btn-outline-secondary btn-sm" href="home-admin.html">Ir a la tienda</a><a
+                class="btn btn-outline-secondary btn-sm" href="index.html">Salir</a></div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 col-lg-2 sidebar p-3">
+                <nav aria-label="Panel">
+                    <ul class="nav nav-pills flex-md-column gap-1">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                href="crm-admin.html">Resumen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crm-pedidos-admin.html">Pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crm-clientes-admin.html">Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crm-direcciones-admin.html">Direcciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crm-proveedores-admin.html">Proveedores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crm-inventario-admin.html">Inventario y
+                                diseños</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crm-empleados-admin.html">Empleados</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main id="contenido" class="col-md-9 col-lg-10 p-4">
+                <h1 class="h2 mb-4">Panel de administración</h1>
+                <div class="row row-cols-2 row-cols-lg-4 g-3">
+                    <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
+                            href="crm-pedidos-admin.html">
+                            <p class="small mb-1">Pedidos pendientes</p>
+                            <p class="h3 mb-0">1</p>
+                        </a></div>
+                    <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
+                            href="crm-inventario-admin.html">
+                            <p class="small mb-1">Ramos en inventario</p>
+                            <p class="h3 mb-0">79</p>
+                        </a></div>
+                    <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
+                            href="crm-clientes-admin.html">
+                            <p class="small mb-1">Clientes</p>
+                            <p class="h3 mb-0">3</p>
+                        </a></div>
+                    <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
+                            href="crm-proveedores-admin.html">
+                            <p class="small mb-1">Proveedores</p>
+                            <p class="h3 mb-0">3</p>
+                        </a></div>
+                    <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
+                            href="crm-empleados-admin.html">
+                            <p class="small mb-1">Empleados</p>
+                            <p class="h3 mb-0">2</p>
+                        </a></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+                    <h2 class="h4 mb-0">Últimos pedidos</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <caption class="visually-hidden">Últimos pedidos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1024</td>
+                                <td>María López</td>
+                                <td><span class="badge text-bg-warning">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>1023</td>
+                                <td>Carlos Ruiz</td>
+                                <td><span class="badge text-bg-info">En preparación</span></td>
+                            </tr>
+                            <tr>
+                                <td>1022</td>
+                                <td>Ana Torres</td>
+                                <td><span class="badge text-bg-success">Entregado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script>try { sessionStorage.setItem("rol", "admin") } catch (e) { }</script>
+</body>
+
+</html>
