@@ -12,7 +12,7 @@
     <title>Panel admin | Un ramo más</title>
 </head>
 
-<body>
+<body data-roles="administrador">
     <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
     <header class="navbar border-bottom px-3"><a class="navbar-brand fs-4" href="home-admin.html">🌸 Un ramo más ·
             Admin</a>
@@ -43,27 +43,27 @@
                     <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
                             href="crud-pedidos-admin.html">
                             <p class="small mb-1">Pedidos pendientes</p>
-                            <p class="h3 mb-0">1</p>
+                            <p class="h3 mb-0" data-kpi="pedidos_pendientes">—</p>
                         </a></div>
                     <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
                             href="crud-inventario-admin.html">
                             <p class="small mb-1">Ramos en inventario</p>
-                            <p class="h3 mb-0">79</p>
+                            <p class="h3 mb-0" data-kpi="ramos_inventario">—</p>
                         </a></div>
                     <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
                             href="crud-clientes-admin.html">
                             <p class="small mb-1">Clientes</p>
-                            <p class="h3 mb-0">3</p>
+                            <p class="h3 mb-0" data-kpi="clientes">—</p>
                         </a></div>
                     <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
                             href="crud-proveedores-admin.html">
                             <p class="small mb-1">Proveedores</p>
-                            <p class="h3 mb-0">3</p>
+                            <p class="h3 mb-0" data-kpi="proveedores">—</p>
                         </a></div>
                     <div class="col"><a class="card kpi p-3 text-decoration-none text-reset h-100"
                             href="crud-usuarios-admin.html">
                             <p class="small mb-1">Usuarios</p>
-                            <p class="h3 mb-0">2</p>
+                            <p class="h3 mb-0" data-kpi="empleados">—</p>
                         </a></div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
@@ -79,23 +79,7 @@
                                 <th scope="col">Estado</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1024</td>
-                                <td>María López</td>
-                                <td><span class="badge text-bg-warning">Pendiente</span></td>
-                            </tr>
-                            <tr>
-                                <td>1023</td>
-                                <td>Carlos Ruiz</td>
-                                <td><span class="badge text-bg-info">En preparación</span></td>
-                            </tr>
-                            <tr>
-                                <td>1022</td>
-                                <td>Ana Torres</td>
-                                <td><span class="badge text-bg-success">Entregado</span></td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </main>
@@ -104,7 +88,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="js/panel-admin.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/panel.js"></script>
 </body>
 
 </html>
