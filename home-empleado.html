@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<title>Inicio | Un ramo más</title>
+</head>
+<body>
+    <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+    <header>
+        <nav class="navbar navbar-expand-md border-bottom" aria-label="Principal">
+            <div class="container">
+                <a class="navbar-brand fs-3" href="home-empleado.html">🌸 Un ramo más</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="home-empleado.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="catalogo-empleado.html">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="crm-empleado.html">Panel de administración</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-2">
+                        <a class="btn btn-outline-secondary btn-sm" href="carrito.html">🛒 Carrito</a>
+                        <button class="btn btn-rosa btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#cuenta" aria-controls="cuenta">👤 Cuenta</button>
+                        <span class="fw-bold">Empleado</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cuenta" aria-labelledby="cuentaT">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5" id="cuentaT">Mi cuenta</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <dl>
+                <dt>Nombre de cuenta</dt>
+                <dd>Empleado</dd>
+                <dt>Correo</dt>
+                <dd>empleado@unramomas.com</dd>
+                <dt>Rol</dt>
+                <dd>Empleado</dd>
+            </dl>
+            <a class="btn btn-rosa w-100 mb-2" href="crm-empleado.html">Ir al panel de administración (solo lectura)</a>
+            <a class="btn btn-outline-secondary w-100" href="index.html">Cerrar sesión</a>
+        </div>
+    </div>
+    <main id="contenido" class="container mt-4">
+        <section class="banner d-flex align-items-center justify-content-center text-center p-4" aria-label="Banner principal"><div>
+            <h1>Flores frescas para cada ocasión</h1>
+            <p class="mb-0">Imagen del Banner (1600×500 px)</p>
+        </div>
+        </section>
+        <section class="mt-5" aria-labelledby="destacados">
+            <h2 id="destacados" class="mb-4">Ramos destacados</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                <div class="col">
+                    <article class="card h-100">
+                        <div class="ramo-img" role="img" aria-label="Ramo Rosas Clásicas">🌹</div>
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Rosas Clásicas</h3>
+                            <p class="precio mb-1">$450 MXN</p>
+                            <p class="small text-muted mb-2">Existencias: 12</p>
+                            <a class="btn btn-rosa btn-sm" href="carrito.html">Agregar al carrito</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100">
+                        <div class="ramo-img" role="img" aria-label="Ramo Tulipanes Primavera">🌷</div>
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Tulipanes Primavera</h3>
+                            <p class="precio mb-1">$380 MXN</p>
+                            <p class="small text-muted mb-2">Existencias: 8</p>
+                            <a class="btn btn-rosa btn-sm" href="carrito.html">Agregar al carrito</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100">
+                        <div class="ramo-img" role="img" aria-label="Ramo Girasoles Alegría">🌻</div>
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Girasoles Alegría</h3>
+                            <p class="precio mb-1">$320 MXN</p>
+                            <p class="small text-muted mb-2">Existencias: 15</p>
+                            <a class="btn btn-rosa btn-sm" href="carrito.html">Agregar al carrito</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100">
+                        <div class="ramo-img" role="img" aria-label="Ramo Ramo Mixto Aurora">💐</div>
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Ramo Mixto Aurora</h3>
+                            <p class="precio mb-1">$520 MXN</p>
+                            <p class="small text-muted mb-2">Existencias: 5</p>
+                            <a class="btn btn-rosa btn-sm" href="carrito.html">Agregar al carrito</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+                <div class="text-center mt-4">
+                    <a class="btn btn-rosa" href="catalogo-empleado.html">Ver todo el catálogo</a>
+                </div>
+        </section>
+    </main>
+    <footer class="border-top text-center py-3 mt-5 small">© 2026 Un ramo más · Prototipo</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>try{sessionStorage.setItem("rol","empleado")}catch(e){}</script>
+</body>
+</html>
