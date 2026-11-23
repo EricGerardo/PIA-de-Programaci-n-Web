@@ -6,6 +6,7 @@
 DROP DATABASE IF EXISTS un_ramo_mas;
 CREATE DATABASE un_ramo_mas CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE un_ramo_mas;
+SET NAMES utf8mb4;
 
 -- ---------- Tablas ----------
 CREATE TABLE Usuarios (
@@ -84,14 +85,15 @@ CREATE TABLE Detalle_Pedido (
 );
 
 -- ---------- Datos de ejemplo ----------
--- (los hashes son de relleno; el back-end guardará el hash real de cada contraseña)
+-- Contraseña de todas las cuentas de ejemplo: Ramo2026!
+-- (se guarda solo el hash generado con password_hash de PHP, nunca la contraseña)
 INSERT INTO Usuarios (nombre, correo, contrasena_hash, telefono, rol, fecha_registro) VALUES
- ('Admin',        'admin@unramomas.com',    'HASH_EJEMPLO', '8110000001','administrador', '2026-08-01 09:00:00'),
- ('Laura Méndez', 'laura@unramomas.com',    'HASH_EJEMPLO', '8110000002','empleado',      '2026-08-12 10:00:00'),
- ('Jorge Salas',  'jorge@unramomas.com',    'HASH_EJEMPLO', '8110000003','empleado',      '2026-09-02 11:00:00'),
- ('María López',  'maria@correo.com',       'HASH_EJEMPLO', '8110000004','cliente',       '2026-09-10 12:00:00'),
- ('Carlos Ruiz',  'carlos@correo.com',      'HASH_EJEMPLO', '8110000005','cliente',       '2026-09-15 13:00:00'),
- ('Ana Torres',   'ana@correo.com',         'HASH_EJEMPLO', '8110000006','cliente',       '2026-09-20 14:00:00');
+ ('Admin',        'admin@unramomas.com',    '$2y$10$vSV2AbTSOiqLkcv8Pxl4ouS4xSPb4lF3jIq/obIKczaONzCzxfUIy', '8110000001','administrador', '2026-08-01 09:00:00'),
+ ('Laura Méndez', 'laura@unramomas.com',    '$2y$10$.v2rlocKWLRzafeRdW5wMefx9LV/aBduYXoDdEEGUtnM2n6a.kuLq', '8110000002','empleado',      '2026-08-12 10:00:00'),
+ ('Jorge Salas',  'jorge@unramomas.com',    '$2y$10$iupCtbiZhGXSnchVyPkGI.8kb2V2WFlFRPOTU8zR1Wglo6Xxlk706', '8110000003','empleado',      '2026-09-02 11:00:00'),
+ ('María López',  'maria@correo.com',       '$2y$10$NGpdrQQjJxw0Ygpagr95H.PcDRoZ9fp0sQxboyfvxd2rqgTUd5MzW', '8110000004','cliente',       '2026-09-10 12:00:00'),
+ ('Carlos Ruiz',  'carlos@correo.com',      '$2y$10$rK8cnaz28pzJIpMOiwXZ3.HuG3J/EU0gkwq9vHkiJ9OQ0FtDBjGoS', '8110000005','cliente',       '2026-09-15 13:00:00'),
+ ('Ana Torres',   'ana@correo.com',         '$2y$10$V3jqYSmsLef9OnzOOCqh3.IhStsb.kOZZotUpi7.G0N3JGN2lpx6C', '8110000006','cliente',       '2026-09-20 14:00:00');
 
 INSERT INTO Direcciones (id_usuario, alias, calle_numero, colonia, ciudad, codigo_postal, referencias) VALUES
  (4,'Casa',    'Av. Reforma 120',  'Centro',   'Monterrey',       '64000', 'Portón negro'),
