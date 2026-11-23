@@ -12,7 +12,7 @@
     <title>Inventario y diseños | Un ramo más</title>
 </head>
 
-<body>
+<body data-roles="empleado,administrador">
     <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
     <header class="navbar border-bottom px-3"><a class="navbar-brand fs-4" href="home-empleado.html">🌸 Un ramo más ·
             Empleado</a>
@@ -60,96 +60,7 @@
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Rosas Clásicas</td>
-                                <td>Docena de rosas rojas</td>
-                                <td>$450</td>
-                                <td>12</td>
-                                <td>rosas-clasicas.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" checked
-                                        disabled></td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Tulipanes Primavera</td>
-                                <td>Tulipanes de colores</td>
-                                <td>$380</td>
-                                <td>8</td>
-                                <td>tulipanes.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" checked
-                                        disabled></td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Girasoles Alegría</td>
-                                <td>Girasoles con follaje</td>
-                                <td>$320</td>
-                                <td>15</td>
-                                <td>girasoles.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" checked
-                                        disabled></td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Ramo Mixto Aurora</td>
-                                <td>Flores mixtas de temporada</td>
-                                <td>$520</td>
-                                <td>5</td>
-                                <td>mixto-aurora.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" checked
-                                        disabled></td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Cerezo Rosa</td>
-                                <td>Ramas de cerezo y rosas</td>
-                                <td>$410</td>
-                                <td>9</td>
-                                <td>cerezo-rosa.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" disabled>
-                                </td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Hibisco Tropical</td>
-                                <td>Hibiscos y hojas tropicales</td>
-                                <td>$350</td>
-                                <td>6</td>
-                                <td>hibisco.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" disabled>
-                                </td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Margaritas Campo</td>
-                                <td>Margaritas frescas</td>
-                                <td>$280</td>
-                                <td>20</td>
-                                <td>margaritas.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" disabled>
-                                </td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Rosas Blancas Nupcial</td>
-                                <td>Rosas blancas para boda</td>
-                                <td>$690</td>
-                                <td>4</td>
-                                <td>rosas-blancas.jpg</td>
-                                <td><input class="form-check-input" type="checkbox" aria-label="Destacado" disabled>
-                                </td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </main>
@@ -158,7 +69,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="js/crud-inventario-emp.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="js/inventario.js"></script>
 </body>
 
 </html>
