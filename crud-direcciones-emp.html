@@ -12,7 +12,7 @@
     <title>Direcciones | Un ramo más</title>
 </head>
 
-<body>
+<body data-roles="empleado,administrador">
     <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
     <header class="navbar border-bottom px-3"><a class="navbar-brand fs-4" href="home-empleado.html">🌸 Un ramo más ·
             Empleado</a>
@@ -59,52 +59,7 @@
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>María López</td>
-                                <td>Casa</td>
-                                <td>Av. Reforma 120</td>
-                                <td>Centro</td>
-                                <td>Monterrey</td>
-                                <td>64000</td>
-                                <td>Portón negro</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>María López</td>
-                                <td>Trabajo</td>
-                                <td>Calle Pino 45</td>
-                                <td>Del Valle</td>
-                                <td>San Pedro</td>
-                                <td>66220</td>
-                                <td>—</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Carlos Ruiz</td>
-                                <td>Casa</td>
-                                <td>Calle Pino 45</td>
-                                <td>Del Valle</td>
-                                <td>San Pedro</td>
-                                <td>66220</td>
-                                <td>—</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Ana Torres</td>
-                                <td>Casa</td>
-                                <td>Priv. Sauce 8</td>
-                                <td>Roma</td>
-                                <td>Monterrey</td>
-                                <td>64700</td>
-                                <td>Timbre 2</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </main>
@@ -113,7 +68,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="js/crud-direcciones-emp.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="js/direcciones.js"></script>
 </body>
 
 </html>
