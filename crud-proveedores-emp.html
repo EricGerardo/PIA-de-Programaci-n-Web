@@ -12,7 +12,7 @@
     <title>Proveedores | Un ramo más</title>
 </head>
 
-<body>
+<body data-roles="empleado,administrador">
     <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
     <header class="navbar border-bottom px-3"><a class="navbar-brand fs-4" href="home-empleado.html">🌸 Un ramo más ·
             Empleado</a>
@@ -56,32 +56,7 @@
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Flores del Valle</td>
-                                <td>Rosas y tulipanes</td>
-                                <td>8120000001</td>
-                                <td>ventas@floresdelvalle.mx</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Campo Verde</td>
-                                <td>Girasoles</td>
-                                <td>8120000002</td>
-                                <td>contacto@campoverde.mx</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Empaques Luna</td>
-                                <td>Papel y listones</td>
-                                <td>8120000003</td>
-                                <td>pedidos@empaquesluna.mx</td>
-                                <td><button class="btn btn-sm btn-outline-secondary" type="button">Ver</button></td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </main>
@@ -90,7 +65,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="js/crud-proveedores-emp.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="js/proveedores.js"></script>
 </body>
 
 </html>
