@@ -1,68 +1,111 @@
-var r = "cliente",
-  it = [{ n: "🌹 Rosas Clásicas", p: 450, c: 1 }];
-try {
-  r = sessionStorage.getItem("rol") || r;
-  it = JSON.parse(sessionStorage.getItem("carrito")) || it;
-} catch (e) {}
-var N = { cliente: "Cliente", empleado: "Empleado", admin: "Admin" },
-  $ = function (i) {
-    return document.getElementById(i);
-  };
-$("rol-n").textContent = N[r];
-$("inicio").href = $("volver-inicio").href = "home-" + r + ".html";
-$("cat").href = "catalogo-" + r + ".html";
-var t = 0;
-it.forEach(function (x) {
-  t += x.p * x.c;
-  var l = document.createElement("li");
-  l.className = "list-group-item d-flex justify-content-between px-0";
-  l.textContent = x.n + " × " + x.c;
-  var s = document.createElement("span");
-  s.textContent = "$" + x.p * x.c;
-  l.appendChild(s);
-  $("resumen").appendChild(l);
-});
-$("total").textContent = "$" + t + " MXN";
-$("guardar-dir").addEventListener("click", function () {
-  var v = ["calle", "colonia", "ciudad", "cp"].map(function (i) {
-    return $(i).value.trim();
-  });
-  if (
-    v.some(function (x) {
-      return !x;
+// =====================================================================
+// Un ramo más | Pago y confirmación del pedido
+// Al confirmar se crea el pedido en la base de datos (estado "pendiente").
+// =====================================================================
+const $ = (id) => document.getElementById(id);
+const carrito = leerCarrito();
+
+// Enlaces de la barra según el rol
+function ajustarEnlaces() {
+  $("rol-n").textContent = NOMBRE_ROL[usuario.rol];
+  $("inicio").href = $("volver-inicio").href = HOME_POR_ROL[usuario.rol];
+  $("cat").href = `catalogo-${SUFIJO_POR_ROL[usuario.rol]}.html`;
+}
+
+// Resumen del pedido (lado derecho)
+function pintarResumen() {
+  let total = 0;
+  $("resumen").innerHTML = carrito
+    .map((item) => {
+      total += item.precio * item.cantidad;
+      return `<li class="list-group-item d-flex justify-content-between px-0">
+                ${esc(item.nombre)} × ${item.cantidad}<span>${dinero(item.precio * item.cantidad)}</span>
+              </li>`;
     })
-  ) {
-    alert("Completa todos los campos de la dirección.");
+    .join("");
+  $("total").textContent = dinero(total) + " MXN";
+}
+
+// Direcciones guardadas del usuario, como opciones de radio
+async function cargarDirecciones(seleccionar) {
+  const { direcciones } = await api("direcciones.php?accion=mias");
+  if (!direcciones.length) {
+    $("lista-dir").innerHTML = '<p class="text-muted small">Aún no tienes direcciones. Agrega una.</p>';
+    bootstrap.Collapse.getOrCreateInstance($("nueva")).show();
     return;
   }
-  var n = document.querySelectorAll("#lista-dir input").length,
-    txt = "Nueva · " + v[0] + ", " + v[1] + ", " + v[2] + ", " + v[3],
-    d = document.createElement("div");
-  d.className = "form-check mb-2";
-  d.innerHTML =
-    '<input class="form-check-input" type="radio" name="dir" id="d' +
-    n +
-    '" required><label class="form-check-label" for="d' +
-    n +
-    '"></label>';
-  d.querySelector("label").textContent = txt;
-  d.querySelector("input").value = txt;
-  d.querySelector("input").checked = true;
-  $("lista-dir").appendChild(d);
-  ["calle", "colonia", "ciudad", "cp"].forEach(function (i) {
-    $(i).value = "";
-  });
-  bootstrap.Collapse.getOrCreateInstance($("nueva")).hide();
-});
-$("fpago").addEventListener("submit", function (e) {
-  e.preventDefault();
-  $("num").textContent = "#" + (1025 + Math.floor(Math.random() * 50));
-  $("dir-ok").textContent = document.querySelector("input[name=dir]:checked").value;
-  $("total-ok").textContent = "$" + t + " MXN";
-  $("pantalla-pago").classList.add("d-none");
-  $("confirmacion").classList.remove("d-none");
-  $("confirmacion").focus();
+  $("lista-dir").innerHTML = direcciones
+    .map((d, i) => {
+      const marcada = seleccionar ? d.id_direccion === seleccionar : i === 0;
+      const texto = `${d.alias} · ${d.calle_numero}, ${d.colonia}, ${d.ciudad}, ${d.codigo_postal}`;
+      return `<div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="dir" id="d${d.id_direccion}"
+                       value="${d.id_direccion}" data-texto="${esc(texto)}" ${marcada ? "checked" : ""} required>
+                <label class="form-check-label" for="d${d.id_direccion}">${esc(texto)}</label>
+              </div>`;
+    })
+    .join("");
+}
+
+// Guardar una dirección nueva
+$("guardar-dir").addEventListener("click", async () => {
   try {
-    sessionStorage.removeItem("carrito");
-  } catch (x) {}
+    const { id } = await api("direcciones.php?accion=crear", {
+      alias: "Otra",
+      calle_numero: $("calle").value.trim(),
+      colonia: $("colonia").value.trim(),
+      ciudad: $("ciudad").value.trim(),
+      codigo_postal: $("cp").value.trim(),
+    });
+    ["calle", "colonia", "ciudad", "cp"].forEach((campo) => ($(campo).value = ""));
+    bootstrap.Collapse.getOrCreateInstance($("nueva")).hide();
+    await cargarDirecciones(id);
+    mostrarAviso("Dirección guardada.");
+  } catch (error) {
+    mostrarAviso(error.message, "danger");
+  }
 });
+
+// Confirmar pedido
+$("fpago").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const direccion = document.querySelector("input[name=dir]:checked");
+  if (!direccion) {
+    mostrarAviso("Selecciona o agrega una dirección de entrega.", "warning");
+    return;
+  }
+  const boton = e.submitter;
+  boton.disabled = true;
+  try {
+    const pedido = await api("pedidos.php?accion=crear", {
+      id_direccion: Number(direccion.value),
+      items: carrito.map((item) => ({ id_ramo: item.id, cantidad: item.cantidad })),
+    });
+    // Los datos de la tarjeta no se envían ni se guardan: el pago es simulado.
+    sessionStorage.removeItem("carrito");
+    $("num").textContent = "#" + pedido.id;
+    $("dir-ok").textContent = direccion.dataset.texto;
+    $("total-ok").textContent = dinero(pedido.total) + " MXN";
+    $("pantalla-pago").classList.add("d-none");
+    $("confirmacion").classList.remove("d-none");
+    $("confirmacion").focus();
+  } catch (error) {
+    mostrarAviso(error.message, "danger");
+    boton.disabled = false;
+  }
+});
+
+(async () => {
+  await verificarSesion();
+  ajustarEnlaces();
+  if (!carrito.length) {
+    location.href = "carrito.html"; // no hay nada que pagar
+    return;
+  }
+  pintarResumen();
+  try {
+    await cargarDirecciones();
+  } catch (error) {
+    mostrarAviso(error.message, "danger");
+  }
+})();
