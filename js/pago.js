@@ -1,18 +1,13 @@
-// =====================================================================
-// Un ramo más | Pago y confirmación del pedido
-// Al confirmar se crea el pedido en la base de datos (estado "pendiente").
-// =====================================================================
+
 const $ = (id) => document.getElementById(id);
 const carrito = leerCarrito();
 
-// Enlaces de la barra según el rol
 function ajustarEnlaces() {
   $("rol-n").textContent = NOMBRE_ROL[usuario.rol];
   $("inicio").href = $("volver-inicio").href = HOME_POR_ROL[usuario.rol];
   $("cat").href = `catalogo-${SUFIJO_POR_ROL[usuario.rol]}.html`;
 }
 
-// Resumen del pedido (lado derecho)
 function pintarResumen() {
   let total = 0;
   $("resumen").innerHTML = carrito
@@ -26,7 +21,6 @@ function pintarResumen() {
   $("total").textContent = dinero(total) + " MXN";
 }
 
-// Direcciones guardadas del usuario, como opciones de radio
 async function cargarDirecciones(seleccionar) {
   const { direcciones } = await api("direcciones.php?accion=mias");
   if (!direcciones.length) {
@@ -47,7 +41,6 @@ async function cargarDirecciones(seleccionar) {
     .join("");
 }
 
-// Guardar una dirección nueva
 $("guardar-dir").addEventListener("click", async () => {
   try {
     const { id } = await api("direcciones.php?accion=crear", {
@@ -66,7 +59,6 @@ $("guardar-dir").addEventListener("click", async () => {
   }
 });
 
-// Confirmar pedido
 $("fpago").addEventListener("submit", async (e) => {
   e.preventDefault();
   const direccion = document.querySelector("input[name=dir]:checked");
@@ -81,7 +73,6 @@ $("fpago").addEventListener("submit", async (e) => {
       id_direccion: Number(direccion.value),
       items: carrito.map((item) => ({ id_ramo: item.id, cantidad: item.cantidad })),
     });
-    // Los datos de la tarjeta no se envían ni se guardan: el pago es simulado.
     sessionStorage.removeItem("carrito");
     $("num").textContent = "#" + pedido.id;
     $("dir-ok").textContent = direccion.dataset.texto;
@@ -99,7 +90,7 @@ $("fpago").addEventListener("submit", async (e) => {
   await verificarSesion();
   ajustarEnlaces();
   if (!carrito.length) {
-    location.href = "carrito.html"; // no hay nada que pagar
+    location.href = "carrito.html"; 
     return;
   }
   pintarResumen();

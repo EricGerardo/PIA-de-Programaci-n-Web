@@ -1,8 +1,4 @@
-// =====================================================================
-// Un ramo más | Pedidos
-// Admin: registrar pedidos, cambiar estado y fecha de entrega, eliminar.
-// Empleado: solo consulta.
-// =====================================================================
+
 const OPCIONES_ESTADO = Object.entries(ESTADOS_PEDIDO).map(([valor, e]) => ({ valor, texto: e.texto }));
 
 (async () => {
@@ -26,7 +22,6 @@ const OPCIONES_ESTADO = Object.entries(ESTADOS_PEDIDO).map(([valor, e]) => ({ va
       { campo: "total", formato: (v) => dinero(v) },
     ],
     campos: [
-      // Al registrar: la dirección indica de qué cliente es el pedido
       {
         campo: "id_direccion",
         etiqueta: "Cliente y dirección de entrega",
@@ -60,7 +55,7 @@ const OPCIONES_ESTADO = Object.entries(ESTADOS_PEDIDO).map(([valor, e]) => ({ va
         soloNuevo: true,
         inicial: 1,
       },
-      // Al editar: estado del pedido
+      
       {
         campo: "estado",
         etiqueta: "Estado",
@@ -71,7 +66,7 @@ const OPCIONES_ESTADO = Object.entries(ESTADOS_PEDIDO).map(([valor, e]) => ({ va
       },
       { campo: "fecha_entrega", etiqueta: "Fecha de entrega", tipo: "date" },
     ],
-    // El back-end espera los ramos como una lista "items"
+    
     antesDeGuardar: (datos, editando) => {
       if (editando) return datos;
       return {

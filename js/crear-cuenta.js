@@ -1,6 +1,4 @@
-// =====================================================================
-// Un ramo más | Crear cuenta (siempre se crea con rol cliente)
-// =====================================================================
+
 const formulario = document.getElementById("f");
 const mensajeError = document.getElementById("error");
 
@@ -23,7 +21,7 @@ formulario.addEventListener("submit", async (e) => {
       telefono: document.getElementById("telefono").value.trim(),
       clave: clave,
     });
-    // La cuenta queda con la sesión iniciada
+
     location.href = HOME_POR_ROL.cliente;
   } catch (error) {
     mensajeError.textContent = error.message;

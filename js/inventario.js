@@ -1,7 +1,4 @@
-// =====================================================================
-// Un ramo más | Inventario y diseños (tabla Ramos)
-// Admin: CRUD completo y casilla "Destacado". Empleado: solo consulta.
-// =====================================================================
+
 (async () => {
   await verificarSesion();
   const esAdmin = document.body.dataset.roles === "administrador";
@@ -38,7 +35,6 @@
     ],
   });
 
-  // Casilla "Destacado" directamente en la tabla (solo admin)
   document.querySelector("#tabla tbody").addEventListener("change", async (e) => {
     if (!e.target.classList.contains("destacado")) return;
     try {

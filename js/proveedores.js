@@ -1,8 +1,4 @@
-// =====================================================================
-// Un ramo más | Proveedores
-// En "Ver" se muestran los ramos que ha suministrado cada proveedor
-// (tabla intermedia Proveedor_Ramo).
-// =====================================================================
+
 (async () => {
   await verificarSesion();
 
